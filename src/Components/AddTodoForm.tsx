@@ -1,11 +1,11 @@
-import React, { useState, FC, FormEvent } from "react";
+import React, { useState, FC, FormEvent, ChangeEvent } from "react";
 
 interface AddTodoFormProps {
   onAdd: (text: string) => void;
 }
 
 const AddTodoForm: FC<AddTodoFormProps> = ({ onAdd }) => {
-  const [newTodo, setNewTodo] = useState("");
+  const [newTodo, setNewTodo] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -19,7 +19,9 @@ const AddTodoForm: FC<AddTodoFormProps> = ({ onAdd }) => {
         type="text"
         placeholder="New Todo"
         value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setNewTodo(e.target.value)
+        }
       />
       <button type="submit">Add</button>
     </form>

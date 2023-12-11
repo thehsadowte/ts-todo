@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Task } from "../App";
+import { Task } from "../todoSlice";
 
 interface TodoItemProps {
   todo: Task;
